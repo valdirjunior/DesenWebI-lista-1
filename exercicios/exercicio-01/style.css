@@ -68,7 +68,8 @@ main {
     display: flex;
     color: #000000;
     width: 100%;
-    gap: 15px;
+    gap: 2%;
+    padding: 5%;
     align-items: center;
     text-align: center;
 }
