@@ -9,13 +9,12 @@
     <link rel="icon" type="image/x-icon" href="../../images/deathstroke_white.ico">
 
     <!-- Fonte Externa -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="Roboto">
 
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <!-- Navbar -->
     <nav class="navbar">
       <a href="#" class="logo">
         <img src="../../images/deathstroke-logo.png" alt="Logotipo"/>
@@ -37,25 +36,18 @@
       </div>
     </nav>
 
-    <!-- Lista de Tarefas -->
     <div class="container">
         <h1>Lista de Tarefas</h1>
 
-        <!-- Campo de filtro -->
         <input type="text" id="filter-task" placeholder="Filtrar tarefas" onkeyup="filterTasks()" aria-label="Filtrar tarefas por nome">
 
-        <!-- Adicionar nova tarefa -->
         <div class="task-input">
           <input type="text" id="new-task" placeholder="Adicionar nova tarefa" aria-label="Digite a nova tarefa">
           <button onclick="addTask()">ADICIONAR</button>
         </div>
-
-        <!-- Lista de Tarefas -->
         <ul id="task-list" role="list" aria-live="polite"></ul>
     </div>
-    
-    <!-- Footer -->
-    <footer>
+        <footer>
       <p>© Valdir Rugiski Junior 2024</p>
     </footer>
     
