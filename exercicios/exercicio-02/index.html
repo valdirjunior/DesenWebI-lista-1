@@ -3,16 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Exercício 01</title>
-    <meta name="description" content="DESCRICAO AQUI" />
+    <title>Exercício 02</title>
+    <meta name="description" content="Sistema de lista de tarefas" />
     <meta name="author" content="Valdir Rugiski Junior" />
     <link rel="icon" type="image/x-icon" href="../../images/deathstroke_white.ico">
+
+    <!-- Fonte Externa -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <nav class="navbar clearfix">
+    <!-- Navbar -->
+    <nav class="navbar">
       <a href="#" class="logo">
         <img src="../../images/deathstroke-logo.png" alt="Logotipo"/>
       </a>
@@ -27,18 +31,34 @@
           <li class="menu-item">
             <a class="menu-link" href="#">Sobre</a>
           </li>
+          <!-- Tema Claro/Escuro -->
+          <button id="theme-toggle" aria-label="Mudar tema" onclick="toggleTheme()">Mudar Tema</button>
         </ul>
       </div>
     </nav>
 
-    <main>
-        <div class="tarefas">
-            <h1>"Lista de Tarefas"</h1>
-        </div>
-    </main>
+    <!-- Lista de Tarefas -->
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
 
+        <!-- Campo de filtro -->
+        <input type="text" id="filter-task" placeholder="Filtrar tarefas" onkeyup="filterTasks()" aria-label="Filtrar tarefas por nome">
+
+        <!-- Adicionar nova tarefa -->
+        <div class="task-input">
+          <input type="text" id="new-task" placeholder="Adicionar nova tarefa" aria-label="Digite a nova tarefa">
+          <button onclick="addTask()">ADICIONAR</button>
+        </div>
+
+        <!-- Lista de Tarefas -->
+        <ul id="task-list" role="list" aria-live="polite"></ul>
+    </div>
+    
+    <!-- Footer -->
     <footer>
-        <p>© Valdir Rugiski Junior 2024</p>
-      </footer>
-    </body>
-  </html>
+      <p>© Valdir Rugiski Junior 2024</p>
+    </footer>
+    
+    <script src="main.js"></script>
+  </body>
+</html>
