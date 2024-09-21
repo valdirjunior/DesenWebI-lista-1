@@ -15,9 +15,13 @@ body {
     .container {
         background-color: #333;    
     }
-    /* .task-input li{
-        background-color: #555;
-    } */
+    #theme-toggle{
+        background-color: #034b63;
+        color: white;
+    }
+    button, button.copy-link, button.download, button.share{
+        color: #333;
+    }
 }
 
 /* Navbar */
@@ -69,16 +73,87 @@ body {
     position: absolute;
     cursor: pointer;
 }
+#theme-toggle {
+    background-color: #6dc5e3;
+    color: #333;
+    text-decoration: none;
+    align-content: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
 
-.container {
-    flex: 1;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 95vw;
-    text-align: center;
-    margin: 20px auto;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 2px solid #000;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.image-container {
+    position: relative;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+button.copy-link, button.download, button.share {
+    padding: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 2px solid blue;
+}
+
+button.download {
+    background-color: #008CBA;
+    color: white;
+}
+
+button.copy-link {
+    background-color: #f39c12;
+    color: white;
+}
+
+button.share {
+    background-color: #ff5722;
+    color: white;
 }
 
 footer {
