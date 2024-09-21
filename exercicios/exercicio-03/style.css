@@ -68,97 +68,19 @@ body {
 #menu .theme-toggle {
     position: absolute;
     cursor: pointer;
-} 
+}
 
-/* Container */
 .container {
     flex: 1;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 95vw;
     text-align: center;
     margin: 20px auto;
 }
 
-h1 {
-    margin-bottom: 20px;
-}
-
-.task-input {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.task-input input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.task-input button {
-    padding: 10px;
-    border: none;
-    background-color: #28a745;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.task-input button:hover {
-    background-color: #218838;
-}
-
-/* Estilo do filtro */
-#filter-task {
-    display: flex;
-    width: 93%;
-    margin-right: 20px;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* Lista de tarefas */
-#task-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-#task-list li {
-    display: flex;
-    align-items: center;
-    /* background-color: #fff; */
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-#task-list li input[type="checkbox"] {
-    margin-right: 10px;
-}
-
-#task-list li button {
-    margin-left: auto;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#task-list li button:hover {
-    background-color: #c82333;
-}
-
-/* Footer */
 footer {
     background-color: #333;
     color: white;
