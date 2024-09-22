@@ -1,0 +1,236 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+/* Dark Mode */
+.dark-mode {
+    background-color: #434343;
+    color: #f4f4f4;
+    .container {
+        background-color: #333;    
+    }
+    #theme-toggle{
+        background-color: #034b63;
+        color: white;
+    }
+    .input-section {
+        background-color: #333;
+    }
+    .table-section {
+        background-color: #333;
+    }
+    tr {
+        color: #333;
+    }
+}
+/* Navbar */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 30px;
+    width: auto;
+    max-height: 100%;
+}
+
+#menu ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+#menu .menu-item {
+    display: inline-block;
+}
+
+#menu .menu-link {
+    color: white;
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#menu .menu-link:hover {
+    background-color: #555;
+}
+
+#menu .theme-toggle {
+    position: absolute;
+    cursor: pointer;
+}
+#theme-toggle {
+    background-color: #6dc5e3;
+    color: #333;
+    text-decoration: none;
+    align-content: center;
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+li {
+    align-content: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    table th, table td {
+        padding: 10px;
+    }
+
+    #map {
+        height: 200px;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+label {
+    display: flex;
+    margin-top: 20px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+.input-section, .table-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#photo-preview {
+    display: block;
+    margin: 20px 0;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+}
+
+#map {
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f0f0f0;
+}
+
+table td img {
+    width: 80px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+table td {
+    vertical-align: middle;
+}
+
+button.view-btn, button.edit-btn, button.delete-btn {
+    margin-right: 5px;
+}
+
+button.delete-btn {
+    background-color: #DC3545;
+}
+
+button.delete-btn:hover {
+    background-color: #c82333;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    align-content: center;
+    padding: 0px 0;
+    margin-top: auto;
+    min-height: 30px;
+}

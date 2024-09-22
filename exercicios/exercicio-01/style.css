@@ -10,7 +10,7 @@ html, body {
 }
 
 body {
-    background-color: #ff9933;
+    background-color: white;
     display: flex;
     flex-direction: column;
 }
@@ -47,28 +47,38 @@ main {
 }
 
 .menu-link {
-    color: #ff9933;
+    color: white;
     text-decoration: none;
     font-size: 18px;
 }
 
 .jumbotron {
-    background-color: #ff9933;
+    background-color: white;
     color: #000000;
     padding: 30px;
     margin-bottom: 30px;
     text-align: center;
 }
 
+p {
+    padding: 10px;
+}
+
 .btn {
-    text-decoration: underline;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ff9933;
+    color: #000000;
+    margin-top: 5px;
+    text-decoration: none;
 }
 
 .linha {
     display: flex;
     color: #000000;
     width: 100%;
-    gap: 2%;
+    gap: 5%;
     padding: 5%;
     align-items: center;
     text-align: center;
@@ -107,7 +117,7 @@ main {
 
 footer {
     background-color: #000000;
-    color: #ff9933;
+    color: white;
     text-align: center;
     padding: 10px 0;
     width: 100%;

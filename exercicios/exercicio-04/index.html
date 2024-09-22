@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Exercício 04</title>
+        <meta name="description" content="Sistema de Fotos com Localização" />
+        <meta name="author" content="Valdir Rugiski Junior" />
+        <link rel="icon" type="image/x-icon" href="../../images/deathstroke_white.ico">
+
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="Roboto">
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <a href="#" class="logo">
+            <img src="../../images/deathstroke-logo.png" alt="Logotipo"/>
+            </a>
+            <div id="menu">
+            <ul>
+                <li class="menu-item">
+                <a class="menu-link" href="#">Parceiros</a>
+                </li>
+                <li class="menu-item">
+                <a class="menu-link" href="#">Contato</a>
+                </li>
+                <li class="menu-item">
+                <a class="menu-link" href="#">Sobre</a>
+                </li>
+                <!-- Tema Claro/Escuro -->
+                <button id="theme-toggle" aria-label="Mudar tema" onclick="toggleTheme()">Mudar Tema</button>
+            </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!-- Seção para tirar foto e inserir detalhes -->
+            <div class="input-section">
+                <h2>Tirar Foto e Inserir Detalhes</h2>
+                <button id="take-photo">Tirar Foto</button>
+                <input type="file" id="upload-photo" accept="image/*">
+                <video id="camera" autoplay style="display: none;"></video>
+                <img id="photo-preview" alt="Prévia da Foto" style="display: none;">
+                <div class="form-group">
+                    <label for="title">Título:</label>
+                    <input type="text" id="title" placeholder="Título" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descrição:</label>
+                    <textarea id="description" placeholder="Descrição"></textarea>
+                </div>
+                <button id="get-location">Marcar Localização</button>
+                <div id="map" style="height: 300px; width: 100%;"></div>
+                <button id="save-photo"  style="display: none;">Salvar Foto</button>
+                <button id="save-edit"  style="display: none;">Salvar Edição de Informações</button>
+            </div>
+        
+            <!-- Seção para exibir a lista de fotos -->
+            <div class="table-section">
+                <h2>Lista de Fotos</h2>
+                <table id="photo-table">
+                    <thead>
+                        <tr>
+                            <th>Foto</th>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Descrição</th>
+                            <th>Localização</th>
+                            <th>Data</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer>
+            <p>© Valdir Rugiski Junior 2024</p>
+        </footer>
+    
+        <script src="main.js"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQtP9Qy6ru9TyZVbrd8OJZCLtR_24wJ7A"></script>
+    </body>
+</html>

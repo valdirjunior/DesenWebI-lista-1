@@ -28,7 +28,7 @@ body {
 .navbar {
     background-color: #333;
     color: white;
-    padding: 5px 15px;
+    padding: 10px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,7 +60,7 @@ body {
 #menu .menu-link {
     color: white;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 4px 10px;
     border-radius: 4px;
     transition: background-color 0.3s;
 }
@@ -78,16 +78,28 @@ body {
     color: #333;
     text-decoration: none;
     align-content: center;
-    padding: 5px 10px;
+    padding: 4px 10px;
     border-radius: 4px;
     transition: background-color 0.3s;
+}
+
+li {
+    align-content: center;
+}
+
+h1 {
+    padding: 10px;
+    align-self: center;
 }
 
 form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 5px;
     margin-bottom: 20px;
+    max-width: 60vw;
+    margin-left: 20vw;
 }
 
 label {
@@ -112,7 +124,7 @@ button:focus {
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 10px;
 }
 
