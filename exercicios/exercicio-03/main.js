@@ -18,6 +18,8 @@ function loadTheme() {
 document.getElementById('imageForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
+
+
     const width = document.getElementById('width').value;
     const height = document.getElementById('height').value;
     const quantity = document.getElementById('quantity').value;
@@ -32,7 +34,9 @@ document.getElementById('imageForm').addEventListener('submit', function (event)
     imageGrid.innerHTML = ''; // Limpa o grid antes de adicionar novas imagens
 
     for (let i = 0; i < quantity; i++) {
-        const imgSrc = `https://picsum.photos/${width}/${height}?random=${i}.webp`;
+        let numeroAleatorio = Math.floor(Math.random() * 10000);
+
+        const imgSrc = `https://picsum.photos/${width}/${height}?random=${numeroAleatorio}.webp`;
 
         const imageContainer = document.createElement('div');
         imageContainer.classList.add('image-container');
