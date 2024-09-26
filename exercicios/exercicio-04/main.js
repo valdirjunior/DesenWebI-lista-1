@@ -191,7 +191,8 @@ function editPhoto(id) {
     // displayMap(location);
     photoPreview.style.display = 'block';
     mapDiv.style.display = 'none';
-    // getElementById('get-location').style.display = 'none';
+    const getLocation = document.getElementById('get-location')
+    getLocation.style.display = 'none';
 
 
 
@@ -207,8 +208,14 @@ function editPhoto(id) {
 
         localStorage.setItem('photos', JSON.stringify(photos));
         clearInputs();
+        editPhotoButton.style.display = 'none';
+        // savePhotoButton.style.display = 'block';
+        mapDiv.style.display = 'block';
+        photoPreview.style.display = 'none';
+        getLocation.style.display = 'block';
         loadPhotos();
     });
+
     return;
 }
 
