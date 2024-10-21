@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Produto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu de Navegação -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="carrinho.html">Carrinho</a></li>
+      <li><a href="checkout.html">Checkout</a></li>
+    </ul>
+  </nav>
+
+  <!-- Detalhes do Produto -->
+  <section id="detalhes-produto">
+    <!-- Conteúdo será preenchido dinamicamente pelo JavaScript -->
+  </section>
+
+  <script src="main.js"></script>
+  <script>
+    // Carregar detalhes do produto baseado no ID (Exemplo simples para simular)
+    const params = new URLSearchParams(window.location.search);
+    const produtoId = params.get('id');
+    exibirDetalhesProduto(produtoId);
+  </script>
+</body>
+</html>

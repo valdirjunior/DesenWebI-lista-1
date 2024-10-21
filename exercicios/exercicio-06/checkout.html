@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu de Navegação -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Loja de Informática</a>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="cart.html">Carrinho</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="Abrir Menu">☰</button>
+    </div>
+  </nav>
+  
+
+  <!-- Formulário de Checkout -->
+  <section id="checkout">
+    <h2>Finalizar Compra</h2>
+    <form id="form-checkout" onsubmit="validarCheckout(event)">
+      <label for="nome">Nome Completo:</label>
+      <input type="text" id="nome" required>
+
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" required>
+
+      <label for="cartao">Número do Cartão:</label>
+      <input type="text" id="cartao" required>
+
+      <button type="submit">Confirmar Compra</button>
+    </form>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja de Informática</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu de Navegação -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Loja de Informática</a>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="carrinho.html">Carrinho</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="Abrir Menu">☰</button>
+    </div>
+  </nav>
+  
+
+  <!-- Campo de Busca e Filtros -->
+  <div class="container">
+    <h1>Produtos</h1>
+  
+    <!-- Filtros e Busca -->
+    <div class="filtros">
+      <select id="filtro-categoria">
+        <option value="">Todas as Categorias</option>
+        <!-- Categorias serão adicionadas dinamicamente -->
+      </select>
+  
+      <select id="filtro-marca">
+        <option value="">Todas as Marcas</option>
+        <!-- Marcas serão adicionadas dinamicamente -->
+      </select>
+  
+      <input type="text" id="busca-nome" placeholder="Buscar produto por nome...">
+    </div>
+  
+    <!-- Alternância Grade/Lista -->
+    <div class="view-options">
+      <button id="btn-grade">Grade</button>
+      <button id="btn-lista">Lista</button>
+    </div>
+  
+    <!-- Lista de Produtos -->
+    <div id="lista-produtos" class="grid"></div>
+  </div>
+  
+  
+  <script src="main.js"></script>
+</body>
+</html>
