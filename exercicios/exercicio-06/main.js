@@ -7,32 +7,26 @@ menuToggle.addEventListener('click', () => {
   menu.classList.toggle('active');
 });
 
-// Carregar os produtos da categoria "laptops" (informática)
 async function carregarProdutos(filtroCategoria = '', filtroMarca = '', buscaNome = '') {
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
       let produtos = data.products;
   
-      // Filtro por categoria
       if (filtroCategoria) {
         produtos = produtos.filter(produto => produto.category === filtroCategoria);
       }
   
-      // Filtro por marca
       if (filtroMarca) {
         produtos = produtos.filter(produto => produto.brand === filtroMarca);
       }
-  
-      // Filtro por nome (busca)
+
       if (buscaNome) {
         produtos = produtos.filter(produto =>
           produto.title.toLowerCase().includes(buscaNome.toLowerCase())
         );
       }
-  
-      // Exibir os produtos filtrados
-      exibirProdutos(produtos);
+        exibirProdutos(produtos);
     } catch (error) {
       console.error('Erro ao carregar produtos:', error);
     }
@@ -68,11 +62,9 @@ async function carregarCategoriasEMarcas() {
       const data = await response.json();
       const produtos = data.products;
   
-      // Extraindo categorias e marcas únicas
       const categorias = [...new Set(produtos.map(produto => produto.category))];
       const marcas = [...new Set(produtos.map(produto => produto.brand))];
   
-      // Adicionando as categorias ao select
       const filtroCategoria = document.getElementById('filtro-categoria');
       categorias.forEach(categoria => {
         const option = document.createElement('option');
@@ -81,7 +73,6 @@ async function carregarCategoriasEMarcas() {
         filtroCategoria.appendChild(option);
       });
   
-      // Adicionando as marcas ao select
       const filtroMarca = document.getElementById('filtro-marca');
       marcas.forEach(marca => {
         const option = document.createElement('option');
@@ -115,7 +106,6 @@ document.getElementById('filtro-categoria').addEventListener('change', (e) => {
     carregarProdutos(categoriaSelecionada, marcaSelecionada, buscaNome);
   });
 
-// Exibir detalhes do produto
 async function exibirDetalhesProduto(idProduto) {
   try {
     // Fazer requisição para obter os detalhes do produto
@@ -145,7 +135,6 @@ document.getElementById('btn-lista').addEventListener('click', function() {
     document.getElementById('lista-produtos').classList.remove('grid');
 });
   
-
 function adicionarAoCarrinho(idProduto) {
   fetch(`https://dummyjson.com/products/${idProduto}`)
     .then(response => response.json())
@@ -180,11 +169,6 @@ function carregarCarrinho() {
         <h3>${produto.title}</h3>
         <p>Quantidade: ${produto.quantidade}</p>
         <p>Preço: R$ ${(produto.price * produto.quantidade).toFixed(2)}</p>
-        <p>Quantidade: 
-          <button onclick="alterarQuantidade(${produto.id}, 'diminuir')">-</button>
-          ${produto.quantidade}
-          <button onclick="alterarQuantidade(${produto.id}, 'aumentar')">+</button>
-        </p>
         <button onclick="removerDoCarrinho(${produto.id})">Remover</button>
       `;
       listaCarrinho.appendChild(produtoDiv);
