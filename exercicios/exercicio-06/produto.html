@@ -7,20 +7,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Menu de Navegação -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li><a href="carrinho.html">Carrinho</a></li>
-      <li><a href="checkout.html">Checkout</a></li>
-    </ul>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Loja de Informática</a>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="carrinho.html">Carrinho</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="Abrir Menu">☰</button>
+    </div>
   </nav>
+  <div class="container">
+    <h1>Detalhes do Produto</h1>
 
-  <!-- Detalhes do Produto -->
-  <section id="detalhes-produto">
-    <!-- Conteúdo será preenchido dinamicamente pelo JavaScript -->
-  </section>
+    <section id="detalhes-produto">
+
+    </section>
+
+  </div>
 
   <script src="main.js"></script>
   <script>

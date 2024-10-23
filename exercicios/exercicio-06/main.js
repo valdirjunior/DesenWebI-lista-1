@@ -48,18 +48,20 @@ function exibirProdutos(produtos) {
   
       produtoDiv.innerHTML = `
         <img src="${produto.thumbnail}" alt="${produto.title}">
-        <h3>${produto.title}</h3>
-        <p>R$ ${produto.price}</p>
-        <button onclick="adicionarAoCarrinho(${produto.id})">Adicionar ao Carrinho</button>
-        <a href="detalhes.html?id=${produto.id}" class="btn-detalhes">Ver Detalhes</a>
+        <div class="product-info">
+          <h3>${produto.title}</h3>
+          <p>R$ ${produto.price}</p>
+        </div>
+        <div class="product-buttons">
+          <button onclick="adicionarAoCarrinho(${produto.id})">Adicionar ao Carrinho</button>
+          <a href="produto.html?id=${produto.id}" class="btn-detalhes">Ver Detalhes</a>
+        </div>
       `;
   
       listaProdutos.appendChild(produtoDiv);
     });
   }
   
-
-
 async function carregarCategoriasEMarcas() {
     try {
       const response = await fetch(apiUrl);
@@ -133,19 +135,17 @@ async function exibirDetalhesProduto(idProduto) {
   }
 }
 
-// Alternar visualização entre Grade e Lista
 document.getElementById('btn-grade').addEventListener('click', function() {
     document.getElementById('lista-produtos').classList.add('grid');
     document.getElementById('lista-produtos').classList.remove('list');
   });
   
-  document.getElementById('btn-lista').addEventListener('click', function() {
+document.getElementById('btn-lista').addEventListener('click', function() {
     document.getElementById('lista-produtos').classList.add('list');
     document.getElementById('lista-produtos').classList.remove('grid');
-  });
+});
   
 
-// Adicionar Produto ao Carrinho (LocalStorage)
 function adicionarAoCarrinho(idProduto) {
   fetch(`https://dummyjson.com/products/${idProduto}`)
     .then(response => response.json())
@@ -159,14 +159,12 @@ function adicionarAoCarrinho(idProduto) {
         produto.quantidade = 1;
         carrinho.push(produto);
       }
-
       localStorage.setItem('carrinho', JSON.stringify(carrinho));
       alert('Produto adicionado ao carrinho!');
     })
     .catch(error => console.error('Erro ao adicionar produto ao carrinho:', error));
 }
 
-// Carregar o carrinho de compras
 function carregarCarrinho() {
   const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
   const listaCarrinho = document.getElementById('lista-carrinho');
@@ -189,7 +187,6 @@ function carregarCarrinho() {
         </p>
         <button onclick="removerDoCarrinho(${produto.id})">Remover</button>
       `;
-
       listaCarrinho.appendChild(produtoDiv);
       total += produto.price * produto.quantidade;
     });
@@ -209,12 +206,10 @@ function alterarQuantidade(produtoId, acao) {
       produto.quantidade -= 1;
     }
   
-    // Atualizar localStorage e recarregar o carrinho
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
     carregarCarrinho();
   }
   
-// Remover produto do carrinho
 function removerDoCarrinho(idProduto) {
   let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
   carrinho = carrinho.filter(produto => produto.id !== idProduto);
@@ -222,19 +217,16 @@ function removerDoCarrinho(idProduto) {
   carregarCarrinho();
 }
 
-//Redirecionar para a página de checkout ao clicar em "Finalizar Compra"
 function finalizarCompra() {
     window.location.href = 'checkout.html';
 } 
   
-// Validar Checkout
 function validarCheckout(event) {
-  event.preventDefault(); // Evitar submissão padrão do formulário
+  event.preventDefault();
   alert("Compra confirmada com sucesso!");
   localStorage.removeItem('carrinho');
-  window.location.href = 'index.html'; // Redireciona para a página inicial
+  window.location.href = 'index.html';
 }
 
-// Carregar os produtos ao carregar a página inicial
 window.onload = carregarProdutos();
 window.onload = carregarCategoriasEMarcas();
