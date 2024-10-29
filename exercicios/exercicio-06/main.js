@@ -1,35 +1,43 @@
 // URL da API DummyJSON para obter os produtos
-const apiUrl = 'https://dummyjson.com/products/category/laptops';
+const apiUrl = 'https://dummyjson.com/products';
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
+
+fetch('https://dummyjson.com/products/category-list')
+.then(res => res.json())
+.then(console.log);
+
 
 menuToggle.addEventListener('click', () => {
   menu.classList.toggle('active');
 });
 
-async function carregarProdutos(filtroCategoria = '', filtroMarca = '', buscaNome = '') {
-    try {
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      let produtos = data.products;
-  
-      if (filtroCategoria) {
-        produtos = produtos.filter(produto => produto.category === filtroCategoria);
-      }
-  
-      if (filtroMarca) {
-        produtos = produtos.filter(produto => produto.brand === filtroMarca);
-      }
+async function carregarProdutos(filtroCategoria = '', filtroMarca = '', buscaNome = '', categories = []) {
+  try {
+      let produtos = [];
+      for (let category of categories) {
+          const response = await fetch(`https://dummyjson.com/products/category/${category}?limit=0`);
+          const data = await response.json();
+          produtos = [...produtos, ...data.products];
+        }
 
-      if (buscaNome) {
-        produtos = produtos.filter(produto =>
-          produto.title.toLowerCase().includes(buscaNome.toLowerCase())
-        );
-      }
+        if (filtroCategoria) {
+            produtos = produtos.filter(produto => produto.category === filtroCategoria);
+          }
+
+        if (filtroMarca) {
+            produtos = produtos.filter(produto => produto.brand === filtroMarca);
+        }
+
+        if (buscaNome) {
+            produtos = produtos.filter(produto =>
+                produto.title.toLowerCase().includes(buscaNome.toLowerCase())
+            );
+        }
         exibirProdutos(produtos);
-    } catch (error) {
+  } catch (error) {
       console.error('Erro ao carregar produtos:', error);
-    }
+  }
 }
 
 function exibirProdutos(produtos) {
@@ -48,20 +56,29 @@ function exibirProdutos(produtos) {
         </div>
         <div class="product-buttons">
           <button onclick="adicionarAoCarrinho(${produto.id})">Adicionar ao Carrinho</button>
-          <a href="produto.html?id=${produto.id}" class="btn-detalhes">Ver Detalhes</a>
+          <button onclick="redirectToProductPage(${produto.id})">Ver Detalhes</button>
         </div>
       `;
   
       listaProdutos.appendChild(produtoDiv);
     });
   }
+
+function redirectToProductPage(produtoId) {
+  window.location.href = `produto.html?id=${produtoId}`;
+}
   
-async function carregarCategoriasEMarcas() {
+async function carregarCategoriasEMarcas(categories = []) {
     try {
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      const produtos = data.products;
-  
+      let produtos = [];
+
+      for (let category of categories) {
+
+        const response = await fetch(`https://dummyjson.com/products/category/${category}?limit=0`);
+        const data = await response.json();
+        produtos = [...produtos,...data.products];
+      }
+
       const categorias = [...new Set(produtos.map(produto => produto.category))];
       const marcas = [...new Set(produtos.map(produto => produto.brand))];
   
@@ -212,5 +229,5 @@ function validarCheckout(event) {
   window.location.href = 'index.html';
 }
 
-window.onload = carregarProdutos();
-window.onload = carregarCategoriasEMarcas();
+window.onload = carregarProdutos('', '', '', ['laptops', 'smartphones', 'tablets', 'mobile-accessories']);
+window.onload = carregarCategoriasEMarcas(['laptops', 'smartphones', 'tablets', 'mobile-accessories']);
